@@ -7,6 +7,19 @@
     android:orientation="vertical"
     tools:context="amandacornelsen.github.com.alunos_rm98160_rm97760.MainActivity">
 
+    <TextView
+        android:id="@+id/headerTitulo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Eventos Extremos - Formulário"
+        android:textColor="#FF0000"
+        android:background="#000000"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:paddingTop="24dp"
+        android:paddingBottom="16dp" />
+
     <EditText
         android:id="@+id/nomeLocal"
         android:layout_width="match_parent"

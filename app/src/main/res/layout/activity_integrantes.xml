@@ -7,6 +7,19 @@
     android:background="#FAFAFA">
 
     <TextView
+        android:id="@+id/headerTitulo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Eventos Extremos - Integrantes"
+        android:textColor="#FF0000"
+        android:background="#000000"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:paddingTop="24dp"
+        android:paddingBottom="16dp" />
+
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Integrantes do Grupo"
