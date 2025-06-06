@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">Alunos_rm98160_rm97760</string>
+
+    <string-array name="grau_impacto_opcoes">
+        <item>Selecione o grau de impacto...</item>
+        <item>Leve</item>
+        <item>Moderado</item>
+        <item>Extremo</item>
+    </string-array>
+
+    <string name="spinner_prompt">Escolha o grau de impacto</string>
 </resources>

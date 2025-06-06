@@ -22,17 +22,14 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:hint="Tipo de evento extremo"
+        android:hint="Tipo de evento"
         android:inputType="text"/>
 
-    <EditText
-        android:id="@+id/impacto"
+    <Spinner
+        android:id="@+id/spinnerImpacto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:hint="Grau de impacto"
-        android:inputType="text"/>
+        android:prompt="@string/spinner_prompt"/>
 
     <EditText
         android:id="@+id/data"

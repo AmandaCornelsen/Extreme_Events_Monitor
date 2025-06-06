@@ -18,7 +18,7 @@ class EventoAdapter(
         val impacto: TextView = itemView.findViewById(R.id.impacto)
         val pessoas: TextView = itemView.findViewById(R.id.pessoas)
         val data: TextView = itemView.findViewById(R.id.data)
-        val tipoDeEvento: TextView = itemView.findViewById(R.id.evento)
+        val tipoDeEvento: TextView = itemView.findViewById(R.id.tipoEvento)
         val btnDelete: ImageView = itemView.findViewById(R.id.deletar)
     }
 

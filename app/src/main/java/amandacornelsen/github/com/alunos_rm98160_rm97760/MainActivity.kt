@@ -1,8 +1,7 @@
 package amandacornelsen.github.com.alunos_rm98160_rm97760
 
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -18,11 +17,19 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val nomeLocal: EditText = findViewById(R.id.nomeLocal)
-        val eventos: EditText = findViewById(R.id.evento)
-        val tipoImpacto: EditText = findViewById(R.id.impacto)
         val pessoasAfetadas: EditText = findViewById(R.id.pessoas)
         val dataEvento: EditText = findViewById(R.id.data)
+        val eventos: EditText = findViewById(R.id.evento)
         val incluir: Button = findViewById(R.id.incluir)
+
+        val spinnerImpacto: Spinner = findViewById(R.id.spinnerImpacto)
+        val adapterSpinner = ArrayAdapter.createFromResource(
+            this,
+            R.array.grau_impacto_opcoes,
+            android.R.layout.simple_spinner_item
+        )
+        adapterSpinner.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spinnerImpacto.adapter = adapterSpinner
 
         recyclerView = findViewById(R.id.recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(this)
@@ -33,24 +40,65 @@ class MainActivity : AppCompatActivity() {
         recyclerView.adapter = adapter
 
         incluir.setOnClickListener {
-            val nomelocal = nomeLocal.text.toString()
-            val impacto = tipoImpacto.text.toString()
-            val pessoas = pessoasAfetadas.text.toString().toIntOrNull() ?: 0
-            val data = dataEvento.text.toString()
-            val eventoClimatico = eventos.text.toString()
+            val nomelocal = nomeLocal.text.toString().trim()
+            val impacto = spinnerImpacto.selectedItem.toString()
+            val pessoasStr = pessoasAfetadas.text.toString().trim()
+            val data = dataEvento.text.toString().trim()
+            val eventoClimatico = eventos.text.toString().trim()
 
-            if (nomelocal.isNotBlank() && impacto.isNotBlank() && data.isNotBlank() && eventoClimatico.isNotBlank()) {
-                val evento = Evento(nomelocal, impacto, pessoas, data, eventoClimatico)
-                listaEventos.add(evento)
-                adapter.notifyItemInserted(listaEventos.size - 1)
+            var validacaoItem = true
 
-                nomeLocal.text.clear()
-                tipoImpacto.text.clear()
-                pessoasAfetadas.text.clear()
-                dataEvento.text.clear()
-                eventos.text.clear()
+            if (nomelocal.isEmpty()) {
+                nomeLocal.error = "Preencha o local"
+                validacaoItem = false
+            } else {
+                nomeLocal.error = null
             }
 
+            if (data.isEmpty()) {
+                dataEvento.error = "Preencha a data"
+                validacaoItem = false
+            } else {
+                dataEvento.error = null
             }
+
+            if (eventoClimatico.isEmpty()) {
+                eventos.error = "Preencha o tipo de evento"
+                validacaoItem = false
+            } else {
+                eventos.error = null
+            }
+
+            if (spinnerImpacto.selectedItemPosition == 0) {
+                Toast.makeText(this, "Selecione um grau de impacto", Toast.LENGTH_SHORT).show()
+                validacaoItem = false
+            }
+
+            val pessoas = pessoasStr.toIntOrNull()
+            if (pessoasStr.isEmpty()) {
+                pessoasAfetadas.error = "Preencha o número de pessoas"
+                validacaoItem = false
+            } else if (pessoas == null || pessoas <= 0) {
+                pessoasAfetadas.error = "Digite um número maior que 0"
+                validacaoItem = false
+            } else {
+                pessoasAfetadas.error = null
+            }
+
+            if (!validacaoItem) {
+                Toast.makeText(this, "Corrija os campos destacados!", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            val evento = Evento(nomelocal, impacto, pessoas!!, data, eventoClimatico)
+            listaEventos.add(evento)
+            adapter.notifyItemInserted(listaEventos.size - 1)
+
+            nomeLocal.text.clear()
+            pessoasAfetadas.text.clear()
+            dataEvento.text.clear()
+            eventos.text.clear()
+            spinnerImpacto.setSelection(0)
         }
     }
+}
