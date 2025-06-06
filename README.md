@@ -3,7 +3,7 @@
 ### Amanda Cornelsen Carbone - RM97760
 ### Vinicius Shuet - RM98160 <br>
 
-### Imagens do projeto 
+## Imagens do projeto 
 #### Imagem 1 - 5 Edit Texts <br>
 <img src="images/Tela 1 - 5 EditText.png" width="300"/> <br>
 #### Imagem 2 - Adicionando Itens <br>
