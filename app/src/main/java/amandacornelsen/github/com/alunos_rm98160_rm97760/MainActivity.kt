@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import amandacornelsen.github.com.alunos_rm98160_rm97760.model.Evento
+import android.content.Intent
 
 class MainActivity : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
@@ -21,6 +22,7 @@ class MainActivity : AppCompatActivity() {
         val dataEvento: EditText = findViewById(R.id.data)
         val eventos: EditText = findViewById(R.id.evento)
         val incluir: Button = findViewById(R.id.incluir)
+        val btnIntegrantes: Button = findViewById(R.id.Integrantes)
 
         val spinnerImpacto: Spinner = findViewById(R.id.spinnerImpacto)
         val adapterSpinner = ArrayAdapter.createFromResource(
@@ -99,6 +101,11 @@ class MainActivity : AppCompatActivity() {
             dataEvento.text.clear()
             eventos.text.clear()
             spinnerImpacto.setSelection(0)
+        }
+
+        btnIntegrantes.setOnClickListener {
+            val intent = Intent(this, IntegrantesActivity::class.java)
+            startActivity(intent)
         }
     }
 }

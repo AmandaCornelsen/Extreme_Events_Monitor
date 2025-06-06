@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="24dp"
+    android:background="#FAFAFA">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Integrantes do Grupo"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#222222"
+        android:layout_marginBottom="16dp"/>
+
+    <TextView
+        android:id="@+id/txtIntegrantes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Amanda Cornelsen Carbone (RM97760)&#10;Vinicius Shuet (RM98160)"
+        android:textSize="17sp"
+        android:textColor="#444444"
+        android:layout_marginBottom="16dp"/>
+
+</LinearLayout>

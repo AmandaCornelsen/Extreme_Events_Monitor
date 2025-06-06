@@ -9,4 +9,5 @@
     </string-array>
 
     <string name="spinner_prompt">Escolha o grau de impacto</string>
+    <string name="title_activity_integrantes">IntegrantesActivity</string>
 </resources>
