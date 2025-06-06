@@ -20,13 +20,16 @@ class MainActivity : AppCompatActivity() {
         val nomeLocal: EditText = findViewById(R.id.nomeLocal)
         val eventos: EditText = findViewById(R.id.evento)
         val tipoImpacto: EditText = findViewById(R.id.impacto)
-        val dataEvento: EditText = findViewById(R.id.data)
         val pessoasAfetadas: EditText = findViewById(R.id.pessoas)
+        val dataEvento: EditText = findViewById(R.id.data)
         val incluir: Button = findViewById(R.id.incluir)
 
         recyclerView = findViewById(R.id.recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(this)
-        adapter = EventoAdapter(listaEventos)
+        adapter = EventoAdapter(listaEventos) { pos ->
+            listaEventos.removeAt(pos)
+            adapter.notifyItemRemoved(pos)
+        }
         recyclerView.adapter = adapter
 
         incluir.setOnClickListener {
