@@ -12,3 +12,5 @@
 <img src="images/Tela 3 - Excluindo itens.png" width="300"/> <br> 
 #### Imagem 4 - Comprovando as exigências <br> 
 <img src="images/Tela 4 - Comprovando as exigÊncias.png" width="300"/> <br>
+#### Imagem 5 - Integrantes <br> 
+<img src="images/Tela 5 - Integrantes.png" width="300"/> <br>
